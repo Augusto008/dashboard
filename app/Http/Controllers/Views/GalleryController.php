@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
-    //
+    public function gallery($lang) {
+        return view('welcome', ["title" => "gallery"]);
+    }
 }
