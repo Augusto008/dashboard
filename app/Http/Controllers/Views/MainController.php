@@ -11,4 +11,11 @@ class MainController extends Controller
         return view('welcome', ["title" => "main"]);
     }
 
+    public function addLang() {
+        $browserLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+        $exploded = explode(',', $browserLang);
+        $lang = substr($exploded[0], 0, 2);
+        return redirect()->to("/$lang");
+    }
+
 }
