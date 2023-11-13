@@ -20,3 +20,7 @@ Route::get('/{lang}/dashboard', [Dashboard::class, 'dashboard']);
 Route::get('/{lang}/formulary', [Formulary::class, 'formulary']);
 Route::get('/{lang}/gallery', [Gallery::class, 'gallery']);
 Route::get('/{lang}/login', [Login::class, 'login']);
+
+Route::fallback(function () {
+    return redirect('/');
+});
