@@ -9,8 +9,6 @@ use App\Http\Controllers\Views\GalleryController as Gallery;
 use App\Http\Controllers\Views\LoginController as Login;
 use App\Http\Controllers\Views\MainController as Main;
 
-
-Route::get('/', [Main::class, 'addLang']);
 Route::get('/{lang}', [Main::class, 'main']);
 Route::get('/{lang}/catalog', [Catalog::class, 'catalog']);
 Route::get('/{lang}/catalog/category', [Catalog::class, 'category']);
