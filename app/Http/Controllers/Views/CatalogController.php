@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class CatalogController extends Controller
 {
     public function catalog($lang) {
-        return view('welcome', ["title" => "catalog"]);
+        return "<h1>Catalog</h1>";
     }
 }
