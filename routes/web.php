@@ -13,7 +13,7 @@ Route::get('/{lang}', [Main::class, 'main']);
 Route::get('/{lang}/catalog', [Catalog::class, 'catalog']);
 Route::get('/{lang}/catalog/category', [Catalog::class, 'category']);
 Route::get('/{lang}/catalog/product', [Catalog::class, 'product']);
-Route::get('/{lang}/catalog/models', [Catalog::class, 'models']);
+Route::get('/{lang}/catalog/model', [Catalog::class, 'model']);
 Route::get('/{lang}/dashboard', [Dashboard::class, 'dashboard']);
 Route::get('/{lang}/formulary', [Formulary::class, 'formulary']);
 Route::get('/{lang}/gallery', [Gallery::class, 'gallery']);
