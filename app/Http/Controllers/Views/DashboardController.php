@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function dashboard($lang) {
-        return view('welcome', ["title" => "dashboard"]);
+        return "<h1>$lang/dashboard</h1>";
     }
 }

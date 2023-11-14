@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function login($lang) {
-        return view('welcome', ["title" => "login"]);
+        return "<h1>$lang/login</h1>";
     }
 }

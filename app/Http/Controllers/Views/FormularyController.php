@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class FormularyController extends Controller
 {
     public function formulary($lang) {
-        return view('welcome', ["title" => "formulary"]);
+        return "<h1>$lang/formulary</h1>";
     }
 }

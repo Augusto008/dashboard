@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class GalleryController extends Controller
 {
     public function gallery($lang) {
-        return view('welcome', ["title" => "gallery"]);
+        return "<h1>$lang/gallery</h1>";
     }
 }
