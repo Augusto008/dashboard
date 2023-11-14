@@ -41,7 +41,7 @@ class AddLangParameter
 
                 $correctedUrl = "/$defaultLang" . $request->getPathInfo();
 
-                return redirect($correctedUrl);
+                return app()->handle(Request::create($correctedUrl, $request->method()));
             }
         }
 
