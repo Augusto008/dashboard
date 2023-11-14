@@ -46,6 +46,10 @@ class AddLangParameter
                 }
             }
 
+            if (!$exist) {
+                return redirect("/$defaultLang");
+            }
+
             if ($request->segment(1) !== $defaultLang) {
                 $segments = $request->segments();
 
