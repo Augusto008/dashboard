@@ -13,4 +13,7 @@ class CatalogController extends Controller
     public function category($lang) {
         return "<h1>Category</h1>";
     }
+    public function product($lang) {
+        return "<h1>Product</h1>";
+    }
 }
