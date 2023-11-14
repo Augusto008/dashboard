@@ -3,9 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class AddLangParameter
 {
@@ -32,6 +34,18 @@ class AddLangParameter
                 $defaultLang = config('app.default_locale', 'en');
             };
 
+            $routes = Route::getRoutes();
+            $exist = "";
+
+            foreach ($routes as $route) {
+                $uriSegments = explode("/", $route->uri());
+                
+                if (in_array($lang, $uriSegments)) {
+                    $exist = $route->uri();
+                    break;
+                }
+            }
+
             if ($request->segment(1) !== $defaultLang) {
                 $segments = $request->segments();
 
@@ -39,7 +53,13 @@ class AddLangParameter
                     $segments[0] = $defaultLang;
                 }
 
-                $correctedUrl = "/$defaultLang" . $request->getPathInfo();
+                if($exist) {
+                    $routeWithoutLang = explode("{lang}", $exist);
+                    $path = $routeWithoutLang[1];
+                    $correctedUrl = "/$defaultLang" . $path;
+                } else {
+                    $correctedUrl = "/$defaultLang" . $request->getPathInfo();
+                }
 
                 return app()->handle(Request::create($correctedUrl, $request->method()));
             }
