@@ -47,7 +47,7 @@ class AddLangParameter
             }
 
             if (!$exist) {
-                return redirect("/$defaultLang");
+                return app()->handle(Request::create("/$defaultLang", $request->method()));
             }
 
             if ($request->segment(1) !== $defaultLang) {
