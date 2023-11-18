@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function main($lang) {
-        return "<h1>$lang/main</h1>";
+        return view('main', [
+            "lang" => $lang,
+            "title" => "Main Page"
+        ]);
     }
 }
